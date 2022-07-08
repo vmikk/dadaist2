@@ -76,7 +76,7 @@ sudo docker pull andreatelatin/dadaist2:last
 ## Advanced topics
 
 ### Singularity definition
-To manually build an image with the latest version from Bioconda the following definition file can be saved as `dadaist-stable.def`:
+To manually build an image with the latest version from Bioconda the following definition file can be saved as `dadaist2-stable.def`:
 
 ```singularity
 Bootstrap: docker
@@ -95,7 +95,7 @@ From: centos:centos7.6.1810
     cd /opt/software    
     curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 
     sh ./Miniconda3-latest-Linux-x86_64.sh -p /opt/software/conda -b
-    /opt/software/conda/bin/conda install -y mamba
+    /opt/software/conda/bin/conda install -y -c conda-forge mamba
     /opt/software/conda/bin/mamba create -c conda-forge -c bioconda  -c aghozlane -p /opt/software/conda_env -y dadaist2-full cutadapt=3.3 qax  r-gunifrac 
 
 %runscript
